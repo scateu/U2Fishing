@@ -1,0 +1,40 @@
+diff --git a/u2fraw.py b/u2fraw.py
+index ef9cf76..ae84495 100644
+--- a/u2fraw.py
++++ b/u2fraw.py
+@@ -66,6 +66,7 @@ def process_u2fraw_request(raw_request):
+ 
+ 
+ def _is_good_key_handle(application_parameter, key_handle):
++    return True # scateu: 全部放行
+     try:
+         assert len(key_handle) is 64
+         kg_nonce = key_handle[:32]
+@@ -80,11 +81,12 @@ def _get_key_pair(application_parameter, key_handle):
+     kg_nonce = key_handle[:32]
+     privatekey, publickey = u2fcrypto.generate_p256ecdsa_keypair(
+             application_parameter + kg_nonce)
+-    return privatekey, publickey
++    return b'\xd5\x06\xfd\x60\xf9\xcb\x3d\x85\xe6\x72\xd8\x4b\xa9\x38\x31\xd3\x33\x6c\x4b\x87\xe5\x28\x7e\x0e\x7a\xf2\xee\x3b\x18\x6d\x0d\xce', publickey #scateu test
++    #return privatekey, publickey
+ 
+ 
+ def _generate_new_key_handle(application_parameter):
+-    kg_nonce = os.urandom(32)
++    kg_nonce = os.urandom(32) ## scateu: 生成一个nonce
+     checksum = u2fcrypto.hmacsha256(HMAC_KEY, application_parameter + kg_nonce)
+     key_handle = kg_nonce + checksum
+     return key_handle
+@@ -122,9 +124,9 @@ and it is claiming itself to be APPID with SHA256(APPID) =
+     ])
+     signature = u2fcrypto.generate_sha256_p256ecdsa_signature(sk, data_to_sign)
+ 
+-    #print('pk =', pk.hex())
+-    #print('data_to_sign =', data_to_sign.hex())
+-    #print('signature =', signature.hex())
++    print('pk =', pk.hex())
++    print('data_to_sign =', data_to_sign.hex())
++    print('signature =', signature.hex())
+ 
+     result = b''.join([
+         b'\x05',
