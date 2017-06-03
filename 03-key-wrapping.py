@@ -51,7 +51,8 @@ if __name__ == "__main__":
     test_handle = websafe_base64_decode("cY2BxtmLWzEf8TGAKgoRkUI1oDnkydp1bHVCVD9QSXtiQxN8")  #test case for https://demo.yubico.com
 
     #test_appid = sha256("pam://scateu-ThinkPad-X230")
-    test_appid = sha256("https://demo.yubico.com")
+    #test_appid = sha256("https://demo.yubico.com")
+    test_appid = binascii.unhexlify("a54672b222c4cf95e151ed8d4d3c767a6cc349435943794e884f3d023a8229fd") #Gmail
 
     test_WMASK = get_write_mask(test_master_key)
     test_RMASK = "\x1a\x1a\x81\x7b\xa8\x0a\x9b\x8f\x23\x08\xbd\xcb\x6c\x1c\xb6\x99\x47\x4a\xe9\xbb\x2c\x67\xbd\x58\x82\x66\xdd\x94\x6b\x66\x06\xd8\xd5\x51\x6c\xc9"
