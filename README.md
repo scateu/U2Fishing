@@ -20,20 +20,20 @@ It's recommended that end users should at least do a master secret regeneration 
 
 ## Outline
 
-1. U2F Introduction
+- U2F Introduction
   - FIDO
   - ECC Crypto / ECDSA
   - Supported Service
-2. A Glance of COTS U2F USB Tokens
+- A Glance of COTS U2F USB Tokens
   - Yubikey
   - Nitrokey
-3. U2F Key Wrapping Mechanism
+- U2F Key Wrapping Mechanism
   - What does Yubico say
   - What does FIDO say
   - U2Fishing: record the master secret of each U2F token during manufacturing process
   - Under potential surveillance
   - U2F Counter: anti-clone
-4. U2Fishing
+- U2Fishing
   - Open Source Project 'U2F Zero' Overview
   - Hardware Overview
     - Secure Element: Atmel ATECC508A
@@ -44,13 +44,13 @@ It's recommended that end users should at least do a master secret regeneration 
   - Write some code to replay key wrapping
   - Simulation with v2f.py
   - Bypassing U2F counter detection: Faking a large counter number.
-5. Live Demo
+- Live Demo
   - demo.yubico.com
   - Gmail
   - Facebook
   - Github
   - Fastmail
-6. Counter Measures
+- Counter Measures
   - reconfigure every new U2F token
   - Yubico doesn't support it yet.
   - You can reprogram U2F Zero totally on your own.
