@@ -5,6 +5,8 @@ A possible real world clone attack demo regarding U2F key.
 
 [![](https://img.youtube.com/vi/axKrtrOTfcY/0.jpg)](https://www.youtube.com/watch?v=axKrtrOTfcY)
 
+ - [CCC-GPN18](https://media.ccc.de/v/gpn18-93-u2fishing-potential-security-threat-introduced-by-u2f-key-wrapping-mechanism#t=74)
+
 
 Universal 2nd Factor (U2F) is an open authentication standard that strengthens and simplifies two-factor authentication and has been used by Facebook, Google, Github etc.
 
@@ -65,3 +67,5 @@ It's recommended that end users should at least do a master secret regeneration 
     - trusted U2F token whitelist
   - Isolate each key pair within U2F token by disabling Key Wrapping mechanism.
   
+
+
